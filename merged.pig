@@ -10,11 +10,11 @@ vehAIS = FILTER vehAIS BY SIZE(mmsi)==9;
 vehAIS = DISTINCT vehAIS;
 
 joined = JOIN posAIS BY mmsi, vehAIS BY mmsi;
-ais = DISTINCT joined;
 
-ais = foreach ais generate (int)mmsi as mmsi, (float)latitude as latitude, (float)longitude as longitude, (int)timestamp as timestamp, (int)shiptype as shiptype;
+ais = FOREACH joined GENERATE (int)$0 as mmsi, (float)$1 as latitude, (float)$2 as longitude, (int)$3 as timestamp, (int)$5 as shiptype;
+
 ais = FILTER ais BY shiptype>9 AND shiptype <100 AND (shiptype/10==8 OR shiptype/10==9);
 g = GROUP ais BY (timestamp-timestamp%3600,(ROUND(latitude*100)/100.0),(ROUND(longitude*100)/100.0));
 data = FOREACH g GENERATE FLATTEN($0), COUNT($1);
 
-STORE data INTO '/user/s1091859/final1337';
+STORE data INTO '/user/s1086057/final1337';
