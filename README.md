@@ -1,0 +1,9 @@
+# Parsing AIS data for visualization of hotspots
+
+This repo contains a number of files for processing of AIS data, created as part of the course
+Managing Big Data at University of Twente.
+
+## Available files
+`step0.py`: Pre-processing of raw AIS data to a usable JSON format on Hadoop.
+`step1.pig`: Filtering and combination of AIS data to a simple row format containing ship location, timestamp and ship types.
+`step2.pig`: Clustering of ships on location and time.
