@@ -10,6 +10,7 @@ Managing Big Data at University of Twente.
 * `merged.pig`: Steps 1 and 2 in a single .pig file.
 * `timeslots.pig`: Counts the amount of data points per timeslots. Exports a tsv file with rows containing an excel datetime and a count.
 * `timeslotsraw.pig`: Same as 'timeslots.pig', with the filters from 'merged.pig' disabled.
+* `export-csv.sh`: Simple shellscript which exports the processed data from Hadoop into a CSV on the local FS suited for CartoDB.
 * `README.md`: This readme.
 
 ## Running the scripts
