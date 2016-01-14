@@ -5,4 +5,4 @@ ais = FILTER ais BY shiptype>9 AND shiptype <100 AND (shiptype/10==8 OR shiptype
 g = GROUP ais BY (timestamp-timestamp%3600,(ROUND(latitude*100)/100.0),(ROUND(longitude*100)/100.0));
 data = FOREACH g GENERATE FLATTEN($0), COUNT($1);
 
-STORE data INTO '/user/s1091859/testoutput15';
+STORE data INTO 'aisOutput_2';

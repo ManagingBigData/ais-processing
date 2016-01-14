@@ -12,4 +12,4 @@ vehAIS = DISTINCT vehAIS;
 joined = JOIN posAIS BY mmsi, vehAIS BY mmsi;
 ais = DISTINCT joined;
 
-STORE ais INTO '/user/s1091859/final' USING JsonStorage();
+STORE ais INTO 'aisOutput_1' USING JsonStorage();
